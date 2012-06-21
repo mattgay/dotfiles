@@ -16,7 +16,6 @@ set noswapfile
 set noshowmode
 set laststatus=2
 set nowrap
-set smarttab
 set scrolloff=4
 set ruler
 set relativenumber
@@ -28,7 +27,7 @@ if has("gui_running")
     set guioptions=egmrt
 endif
 
-set guifont=Menlo:h14
+set guifont=Monaco:h13
 set bg=dark
 colorscheme sunburst
 
@@ -50,6 +49,9 @@ set expandtab
 set shiftround
 set backspace=indent,eol,start
 set copyindent
+set smarttab
+
+inoremap jk <Esc>
 
 " turn off the retarded smart indenting
 
