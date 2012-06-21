@@ -42,9 +42,9 @@ set smartcase
 
 " editing
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set shiftround
 set backspace=indent,eol,start
@@ -71,8 +71,14 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
+" ctrlp settings
+
 let g:ctrlp_map = ',p'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
+
+" ack settings
+
+nnoremap <leader>a :Ack
