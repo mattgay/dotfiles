@@ -5,6 +5,7 @@ alias g='git'
 alias be='bundle exec'
 alias s='open -a "Sublime Text 2"'
 alias mongorun='mongod run --config /usr/local/etc/mongod.conf'
+alias v='mvim'
 
 PATH=/usr/local/bin:$PATH
 

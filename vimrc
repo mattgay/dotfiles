@@ -51,33 +51,39 @@ set backspace=indent,eol,start
 set copyindent
 set smarttab
 
-inoremap jk <Esc>
+inoremap jj <Esc>
 
 " turn off the retarded smart indenting
 
-set nocindent
-set nosmartindent
+set smartindent
+" set nocindent
+" set nosmartindent
 set autoindent
-set indentexpr=
-filetype indent off
-filetype plugin indent off
+" set indentexpr=
+" filetype indent off
+" filetype plugin indent off
+
+vnoremap < <gv
+vnoremap > >gv
 
 " shortcuts
 
 let mapleader = ","
 
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader>l :noh<cr>
 
 nnoremap <tab> %
 vnoremap <tab> %
 
 " ctrlp settings
 
-let g:ctrlp_map = ',p'
+let g:ctrlp_map = ',<space>'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
+
+set wildignore+=*/tmp/
 
 " ack settings
 
