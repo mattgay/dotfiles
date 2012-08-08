@@ -88,3 +88,7 @@ set wildignore+=*/tmp/
 " ack settings
 
 nnoremap <leader>a :Ack
+
+" netrw settings
+
+let g:netrw_liststyle=3 " Use tree-mode as default view
