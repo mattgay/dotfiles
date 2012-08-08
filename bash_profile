@@ -7,7 +7,9 @@ alias s='open -a "Sublime Text 2"'
 alias mongorun='mongod run --config /usr/local/etc/mongod.conf'
 alias v='mvim'
 alias ff='find . | grep'
+alias l='ls -alF'
+alias rp='pry -r ./config/environment'
 
-PATH=/usr/local/bin:$PATH
+PATH=/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
