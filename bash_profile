@@ -9,6 +9,7 @@ alias v='mvim'
 alias ff='find . | grep'
 alias l='ls -alF'
 alias rp='pry -r ./config/environment'
+alias gg='git g'
 
 PATH=/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 

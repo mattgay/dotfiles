@@ -29,7 +29,7 @@ endif
 
 set guifont=Monaco:h13
 set bg=dark
-colorscheme sunburst
+colorscheme Tomorrow-Night-Bright
 
 " search
 
@@ -92,3 +92,9 @@ nnoremap <leader>a :Ack
 " netrw settings
 
 let g:netrw_liststyle=3 " Use tree-mode as default view
+
+" vim-indent-guides config
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=4
