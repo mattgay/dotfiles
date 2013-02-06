@@ -4,6 +4,10 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+" meta key
+
+set macmeta
+
 " turn off annoyances
 
 set visualbell
@@ -51,7 +55,7 @@ set backspace=indent,eol,start
 set copyindent
 set smarttab
 
-inoremap jj <Esc>
+inoremap kj <Esc>
 
 " turn off the retarded smart indenting
 
@@ -98,3 +102,7 @@ let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=4
+
+" easymotion
+
+let g:EasyMotion_leader_key = '<leader>'
