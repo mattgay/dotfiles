@@ -72,7 +72,8 @@ vnoremap > >gv
 
 " shortcuts
 
-let mapleader = ","
+nnoremap <space> <Nop>
+let mapleader = " "
 
 nnoremap <leader>l :noh<cr>
 
@@ -81,7 +82,7 @@ vnoremap <tab> %
 
 " ctrlp settings
 
-let g:ctrlp_map = ',<space>'
+let g:ctrlp_map = '<space>o'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
