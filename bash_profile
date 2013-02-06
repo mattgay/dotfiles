@@ -10,6 +10,10 @@ alias ff='find . | grep'
 alias l='ls -alF'
 alias rp='pry -r ./config/environment'
 alias gg='git g'
+alias a='git add'
+alias c='git cm'
+alias s='git st'
+alias d='git diff'
 
 PATH=/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
