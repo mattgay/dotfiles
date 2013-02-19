@@ -34,6 +34,8 @@ endif
 set guifont=Monaco:h13
 set bg=dark
 colorscheme Tomorrow-Night-Bright
+set list listchars=tab:→\ ,trail:·
+hi SpecialKey guifg=red
 
 " search
 
@@ -106,3 +108,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=4
 " easymotion
 
 let g:EasyMotion_leader_key = '<leader>'
+
+" weird file extensions
+
+au BufNewFile,BufRead *.rabl setf ruby
