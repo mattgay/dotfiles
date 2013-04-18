@@ -1,3 +1,5 @@
+" plugins - powerline, command-t, vim-easymotion, vim-indent-guides, vim-yankstack, vim-coffee-script, vim-fugitive
+
 set nocompatible
 call pathogen#infect()
 call pathogen#helptags()
@@ -25,8 +27,6 @@ set ruler
 set relativenumber
 set numberwidth=4
 
-colorscheme mustang
-
 if has("gui_running")
     set guioptions=egmrt
 endif
@@ -34,6 +34,9 @@ endif
 set guifont=Monaco:h13
 set bg=dark
 colorscheme Tomorrow-Night-Bright
+
+" highlight unwanted whitespace
+
 set list listchars=tab:→\ ,trail:·
 hi SpecialKey guifg=red
 
@@ -57,6 +60,8 @@ set backspace=indent,eol,start
 set copyindent
 set smarttab
 
+" homerow escape
+
 inoremap kj <Esc>
 
 " turn off the retarded smart indenting
@@ -69,27 +74,54 @@ set autoindent
 " filetype indent off
 " filetype plugin indent off
 
+" reselect visual block after indent
+
 vnoremap < <gv
 vnoremap > >gv
 
+" make Y behave like other caps
+
+nnoremap Y y$
+
 " shortcuts
 
-let mapleader = ","
-
-nnoremap <leader>l :noh<cr>
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 nnoremap <tab> %
 vnoremap <tab> %
 
+" unhighlight matches
+
+nnoremap <leader>, :noh<cr>
+
+" natural split open positions
+set splitbelow
+set splitright
+
+" move between splits with ctrl-motion
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+
 " ctrlp settings
 
-let g:ctrlp_map = ',<space>'
+"let g:ctrlp_map = ',<space>'
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 
-set wildignore+=*/tmp/
+" Command-T settings
+
+nnoremap <silent> <Leader>l :CommandT<CR>
+
+let g:CommandTMatchWindowReverse=1
+let g:CommandTAcceptSelectionMap='<C-b>'
+let g:CommandTAcceptSelectionTabMap='<cr>'
+
+set wildignore+=*/tmp/,tmp/**
 
 " ack settings
 
