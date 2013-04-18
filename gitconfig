@@ -14,5 +14,5 @@
 	cm = commit -m
 	pod = push origin development
 	cdiff = diff --cached
-	g = grep --break --heading --line-number
+	g = grep --break --heading --line-number -i
 
