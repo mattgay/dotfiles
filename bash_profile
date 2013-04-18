@@ -14,6 +14,7 @@ alias a='git add'
 alias c='git cm'
 alias s='git st'
 alias d='git diff'
+alias spec='SPEC=zeus zeus rspec'
 
 PATH=/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
