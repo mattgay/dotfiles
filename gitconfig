@@ -16,3 +16,5 @@
 	cdiff = diff --cached
 	g = grep --break --heading --line-number -i
 
+[push]
+	default = simple
