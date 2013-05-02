@@ -8,7 +8,9 @@ filetype plugin indent on
 
 " meta key
 
-set macmeta
+if has("gui_running")
+  set macmeta
+endif
 
 " turn off annoyances
 
