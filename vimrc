@@ -1,10 +1,35 @@
-" plugins - powerline, command-t, vim-easymotion, vim-indent-guides, vim-yankstack, vim-coffee-script, vim-fugitive
-
 set nocompatible
-call pathogen#infect()
-call pathogen#helptags()
-syntax on
+
+" vundle
+
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'chriskempson/base16-vim'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'altercation/vim-colors-solarized'
+
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'tpope/vim-surround'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'kien/ctrlp.vim'
+
+Bundle 'tpope/vim-rails'
+Bundle 'kchmck/vim-coffee-script'
+
+" config
+
 filetype plugin indent on
+syntax on
 
 " meta key
 
@@ -30,17 +55,23 @@ set relativenumber
 set numberwidth=4
 
 if has("gui_running")
-    set guioptions=egmrt
+  set guioptions=egmrt
 endif
 
 set guifont=Monaco:h13
+
 set bg=dark
-colorscheme Tomorrow-Night-Bright
+
+colorscheme Tomorrow-Night
+
+" airline theme
+
+let g:airline_theme='tomorrow'
 
 " highlight unwanted whitespace
 
 set list listchars=tab:→\ ,trail:·
-hi SpecialKey guifg=red
+hi SpecialKey guifg=red ctermfg=red 
 
 " search
 
@@ -62,19 +93,27 @@ set backspace=indent,eol,start
 set copyindent
 set smarttab
 
+" turn off the retarded smart indenting
+
+set smartindent
+set autoindent
+
+" natural split open positions
+
+set splitbelow
+set splitright
+
+" shortcuts
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 " homerow escape
 
 inoremap kj <Esc>
 
-" turn off the retarded smart indenting
-
-set smartindent
-" set nocindent
-" set nosmartindent
-set autoindent
-" set indentexpr=
-" filetype indent off
-" filetype plugin indent off
+nnoremap <tab> %
+vnoremap <tab> %
 
 " reselect visual block after indent
 
@@ -85,23 +124,12 @@ vnoremap > >gv
 
 nnoremap Y y$
 
-" shortcuts
-
-nnoremap <SPACE> <Nop>
-let mapleader = " "
-
-nnoremap <tab> %
-vnoremap <tab> %
-
 " unhighlight matches
 
 nnoremap <leader>, :noh<cr>
 
-" natural split open positions
-set splitbelow
-set splitright
-
 " move between splits with ctrl-motion
+
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 noremap <C-J> <C-W>j
@@ -109,21 +137,22 @@ noremap <C-K> <C-W>k
 
 " ctrlp settings
 
-"let g:ctrlp_map = ',<space>'
+let g:ctrlp_map = '<leader>l'
+
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 
-" Command-T settings
+" silver searcher
 
-nnoremap <silent> <Leader>l :CommandT<CR>
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-let g:CommandTMatchWindowReverse=1
-let g:CommandTAcceptSelectionMap='<C-b>'
-let g:CommandTAcceptSelectionTabMap='<cr>'
-
-set wildignore+=*/tmp/,tmp/**
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " ack settings
 
@@ -134,10 +163,13 @@ nnoremap <leader>a :Ack
 let g:netrw_liststyle=3 " Use tree-mode as default view
 
 " vim-indent-guides config
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_enable_on_vim_startup = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=4
+
+if has("gui_running")
+  let g:indent_guides_auto_colors = 0
+  let g:indent_guides_enable_on_vim_startup = 0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#515151
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222
+endif
 
 " easymotion
 
