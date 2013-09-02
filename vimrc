@@ -9,21 +9,21 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-
 Bundle 'chriskempson/base16-vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Bundle 'altercation/vim-colors-solarized'
-
+Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-surround'
-Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'kien/ctrlp.vim'
-
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'scrooloose/nerdtree'
+Bundle 'austintaylor/vim-indentobject'
 Bundle 'tpope/vim-rails'
 Bundle 'kchmck/vim-coffee-script'
 
@@ -54,25 +54,13 @@ set scrolloff=4
 set ruler
 set relativenumber
 set numberwidth=4
+set guifont=Monaco:h13
+set bg=dark
+colorscheme Tomorrow-Night
 
 if has("gui_running")
   set guioptions=egmrt
 endif
-
-set guifont=Monaco:h13
-
-set bg=dark
-
-colorscheme Tomorrow-Night
-
-" airline theme
-
-let g:airline_theme='tomorrow'
-
-" highlight unwanted whitespace
-
-set list listchars=tab:→\ ,trail:·
-hi SpecialKey guifg=red ctermfg=red 
 
 " search
 
@@ -109,9 +97,16 @@ set splitright
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
+nnoremap <leader>a :Ack
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>l :CtrlP<CR>
+nnoremap <leader>L :CtrlPBuffer<CR>
+
 " homerow escape
 
 inoremap kj <Esc>
+
+" tab to bounce between paired delims
 
 nnoremap <tab> %
 vnoremap <tab> %
@@ -120,10 +115,6 @@ vnoremap <tab> %
 
 vnoremap < <gv
 vnoremap > >gv
-
-" make Y behave like other caps
-
-nnoremap Y y$
 
 " unhighlight matches
 
@@ -136,9 +127,12 @@ noremap <C-L> <C-W>l
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 
-" ctrlp settings
+" airline theme
 
-let g:ctrlp_map = '<leader>l'
+let g:airline_theme='tomorrow'
+
+" ctrlp
+" return on selection opens in new tab
 
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
@@ -148,22 +142,18 @@ let g:ctrlp_prompt_mappings = {
 " silver searcher
 
 if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  " Ag for Ack
+  let g:ackprg = 'ag --nogroup --column'
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" ack settings
-
-nnoremap <leader>a :Ack
-
-" netrw settings
+" netrw
 
 let g:netrw_liststyle=3 " Use tree-mode as default view
 
-" vim-indent-guides config
+" vim-indent-guides
 
 if has("gui_running")
   let g:indent_guides_auto_colors = 0
@@ -179,3 +169,9 @@ let g:EasyMotion_leader_key = '<leader>'
 " weird file extensions
 
 au BufNewFile,BufRead *.rabl setf ruby
+
+" highlight unwanted whitespace
+
+set list listchars=tab:→\ ,trail:·
+hi SpecialKey guifg=red ctermfg=red 
+
