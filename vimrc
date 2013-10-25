@@ -20,14 +20,12 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'scrooloose/nerdtree'
 Bundle 'austintaylor/vim-indentobject'
 Bundle 'tpope/vim-rails'
 Bundle 'kchmck/vim-coffee-script'
-
-" config
+Bundle 'tjennings/git-grep-vim'
 
 filetype plugin indent on
 syntax on
@@ -84,8 +82,8 @@ set smarttab
 
 " turn off the retarded smart indenting
 
-set smartindent
-set autoindent
+" set smartindent
+" set autoindent
 
 " natural split open positions
 
@@ -97,10 +95,10 @@ set splitright
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-nnoremap <leader>a :Ack
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>l :CtrlP<CR>
 nnoremap <leader>L :CtrlPBuffer<CR>
+nnoremap <silent>K :GitGrep <cword><CR>
 
 " homerow escape
 
@@ -127,6 +125,10 @@ noremap <C-L> <C-W>l
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 
+" go back to previous bugger
+
+nnoremap gb <C-^>
+
 " airline theme
 
 let g:airline_theme='tomorrow'
@@ -138,6 +140,10 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
+
+" fugitive
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 " silver searcher
 
@@ -175,3 +181,6 @@ au BufNewFile,BufRead *.rabl setf ruby
 set list listchars=tab:→\ ,trail:·
 hi SpecialKey guifg=red ctermfg=red 
 
+" git grep
+
+command! -nargs=* GG call GitGrep(<q-args>)
