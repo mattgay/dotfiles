@@ -145,16 +145,6 @@ let g:ctrlp_prompt_mappings = {
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-" silver searcher
-
-if executable('ag')
-  " Ag for Ack
-  let g:ackprg = 'ag --nogroup --column'
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
 " netrw
 
 let g:netrw_liststyle=3 " Use tree-mode as default view
