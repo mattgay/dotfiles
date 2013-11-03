@@ -26,6 +26,7 @@ Bundle 'austintaylor/vim-indentobject'
 Bundle 'tpope/vim-rails'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tjennings/git-grep-vim'
+Bundle 'ton/vim-bufsurf'
 
 filetype plugin indent on
 syntax on
@@ -125,9 +126,10 @@ noremap <C-L> <C-W>l
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 
-" go back to previous bugger
+" buffer surfing
 
-nnoremap gb <C-^>
+nnoremap gb :BufSurfBack<CR>
+nnoremap gn :BufSurfForward<CR>
 
 " airline theme
 
