@@ -14,6 +14,7 @@ alias a='git add'
 alias c='git cm'
 alias s='git st'
 alias d='git diff'
+alias ds='git diff --stat --color'
 alias bd='git diff --stat --color master..'
 alias spec='SPEC=zeus zeus rspec'
 
