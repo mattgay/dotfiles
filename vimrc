@@ -91,6 +91,10 @@ set smarttab
 set splitbelow
 set splitright
 
+" keep undo history between buffer changes
+
+set hidden
+
 " shortcuts
 
 nnoremap <SPACE> <Nop>
