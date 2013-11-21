@@ -104,6 +104,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>l :CtrlP<CR>
 nnoremap <leader>L :CtrlPBuffer<CR>
 nnoremap <silent>K :GitGrep <cword><CR>
+vnoremap <silent>K :GitGrep <cword><CR>
 
 " homerow escape
 
