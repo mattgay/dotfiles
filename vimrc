@@ -25,7 +25,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'austintaylor/vim-indentobject'
 Bundle 'tpope/vim-rails'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tjennings/git-grep-vim'
 Bundle 'ton/vim-bufsurf'
 
 filetype plugin indent on
@@ -81,11 +80,6 @@ set backspace=indent,eol,start
 set copyindent
 set smarttab
 
-" turn off the retarded smart indenting
-
-" set smartindent
-" set autoindent
-
 " natural split open positions
 
 set splitbelow
@@ -103,8 +97,9 @@ let mapleader = " "
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>l :CtrlP<CR>
 nnoremap <leader>L :CtrlPBuffer<CR>
-nnoremap <silent>K :GitGrep <cword><CR>
-vnoremap <silent>K :GitGrep <cword><CR>
+nnoremap \ :GitGrep<SPACE>
+nnoremap <silent><bar> :GitGrepWord<CR>
+vnoremap <silent><bar> y:GitGrep <C-R>"<CR>
 
 " homerow escape
 
@@ -180,4 +175,17 @@ hi SpecialKey guifg=red ctermfg=red
 
 " git grep
 
-command! -nargs=* GG call GitGrep(<q-args>)
+function! s:GitGrep(terms)
+  let expr = 'git grep -n "'.a:terms.'"'
+  cgetexpr system(expr)
+  cwin
+  echo 'Number of matches: ' . len(getqflist())
+endfunction
+
+function! s:GitGrepWord()
+  call s:GitGrep(expand("<cword>"))
+endfunction
+
+command! -nargs=0 GitGrepWord :call s:GitGrepWord()
+command! -nargs=+ GitGrep     :call s:GitGrep(<q-args>)
+
