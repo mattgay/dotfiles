@@ -26,6 +26,7 @@ Bundle 'austintaylor/vim-indentobject'
 Bundle 'tpope/vim-rails'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ton/vim-bufsurf'
+Bundle 'tpope/vim-endwise'
 
 filetype plugin indent on
 syntax on
@@ -136,10 +137,11 @@ nnoremap gn :BufSurfForward<CR>
 let g:airline_theme='tomorrow'
 
 " ctrlp
-" return on selection opens in new tab
+" return on selection opens in new tab, c-cr opens in current split
 
 let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("e")': ['<c-cr>'],
+  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 
@@ -188,4 +190,11 @@ endfunction
 
 command! -nargs=0 GitGrepWord :call s:GitGrepWord()
 command! -nargs=+ GitGrep     :call s:GitGrep(<q-args>)
+
+" vim-rspec
+let g:rspec_runner = "os_x_iterm"
+map <Leader>s :call RunCurrentSpecFile()<CR>
+map <Leader>a :call RunNearestSpec()<CR>
+map <Leader>x :call RunLastSpec()<CR>
+map <Leader>z :call RunAllSpecs()<CR>
 
