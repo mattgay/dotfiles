@@ -9,24 +9,45 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'chriskempson/base16-vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Bundle 'bling/vim-airline'
+
+" make more awesomer
+
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'tpope/vim-commentary'
+Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'austintaylor/vim-indentobject'
-Bundle 'tpope/vim-rails'
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ton/vim-bufsurf'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'Shougo/neocomplcache.vim'
+
+" editing
+
+Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
+
+" language extensions
+
+Bundle 'tpope/vim-haml'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'guns/vim-clojure-static'
+Bundle 'guns/vim-clojure-highlight'
+Bundle 'tpope/vim-fireplace'
+Bundle 'amdt/vim-niji'
+Bundle 'guns/vim-sexp'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people'
+
+" colourschemes
+
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'chriskempson/base16-vim'
+Bundle 'w0ng/vim-hybrid'
+
+" vundling complete, carry on
 
 filetype plugin indent on
 syntax on
@@ -46,20 +67,25 @@ set noswapfile
 
 " UI prettiness
 
+if has("gui_running")
+  set guioptions=egmrt
+endif
+
 set noshowmode
 set laststatus=2
 set nowrap
 set scrolloff=4
 set ruler
-set relativenumber
+set number
 set numberwidth=4
 set guifont=Monaco:h13
 set bg=dark
 colorscheme Tomorrow-Night
 
-if has("gui_running")
-  set guioptions=egmrt
-endif
+" use greyscale for clojure
+
+autocmd FileType clojure colorscheme base16-grayscale
+autocmd FileType clojure highlight LineNr guibg='#101010' guifg='#222222'
 
 " search
 
@@ -78,7 +104,7 @@ set softtabstop=2
 set expandtab
 set shiftround
 set backspace=indent,eol,start
-set copyindent
+set smartindent
 set smarttab
 
 " natural split open positions
@@ -90,14 +116,17 @@ set splitright
 
 set hidden
 
-" shortcuts
+" leaders
 
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+let maplocalleader = "'"
+
+" shortcuts
 
 nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>l :CtrlP<CR>
-nnoremap <leader>L :CtrlPBuffer<CR>
+nnoremap <leader>, :CtrlP<CR>
+nnoremap <leader>< :CtrlPBuffer<CR>
 nnoremap \ :GitGrep<SPACE>
 nnoremap <silent><bar> :GitGrepWord<CR>
 vnoremap <silent><bar> y:GitGrep <C-R>"<CR>
@@ -118,7 +147,7 @@ vnoremap > >gv
 
 " unhighlight matches
 
-nnoremap <leader>, :noh<cr>
+nnoremap <leader>/ :noh<cr>
 
 " move between splits with ctrl-motion
 
@@ -153,15 +182,6 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 let g:netrw_liststyle=3 " Use tree-mode as default view
 
-" vim-indent-guides
-
-if has("gui_running")
-  let g:indent_guides_auto_colors = 0
-  let g:indent_guides_enable_on_vim_startup = 0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#515151
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222
-endif
-
 " easymotion
 
 let g:EasyMotion_leader_key = '<leader>'
@@ -173,7 +193,7 @@ au BufNewFile,BufRead *.rabl setf ruby
 " highlight unwanted whitespace
 
 set list listchars=tab:→\ ,trail:·
-hi SpecialKey guifg=red ctermfg=red 
+hi SpecialKey guifg=red ctermfg=red
 
 " git grep
 
@@ -190,11 +210,4 @@ endfunction
 
 command! -nargs=0 GitGrepWord :call s:GitGrepWord()
 command! -nargs=+ GitGrep     :call s:GitGrep(<q-args>)
-
-" vim-rspec
-let g:rspec_runner = "os_x_iterm"
-map <Leader>s :call RunCurrentSpecFile()<CR>
-map <Leader>a :call RunNearestSpec()<CR>
-map <Leader>x :call RunLastSpec()<CR>
-map <Leader>z :call RunAllSpecs()<CR>
 
