@@ -125,8 +125,8 @@ let maplocalleader = "'"
 " shortcuts
 
 nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>, :CtrlP<CR>
-nnoremap <leader>< :CtrlPBuffer<CR>
+nnoremap <leader>l :CtrlP<CR>
+nnoremap <leader>L :CtrlPBuffer<CR>
 nnoremap \ :GitGrep<SPACE>
 nnoremap <silent><bar> :GitGrepWord<CR>
 vnoremap <silent><bar> y:GitGrep <C-R>"<CR>
