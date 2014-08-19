@@ -64,6 +64,7 @@ set visualbell
 set noerrorbells
 set nobackup
 set noswapfile
+let loaded_matchparen = 1
 
 " UI prettiness
 
