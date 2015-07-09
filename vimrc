@@ -34,6 +34,7 @@ Plugin 'tpope/vim-endwise'
 
 Plugin 'tpope/vim-haml'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mtscout6/vim-cjsx'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'tpope/vim-fireplace'
@@ -87,8 +88,8 @@ colorscheme Tomorrow-Night
 
 " use greyscale for clojure
 
-autocmd FileType clojure colorscheme base16-grayscale
-autocmd FileType clojure highlight LineNr guibg='#101010' guifg='#222222'
+" autocmd FileType clojure colorscheme base16-grayscale
+" autocmd FileType clojure highlight LineNr guibg='#101010' guifg='#222222'
 
 " search
 
