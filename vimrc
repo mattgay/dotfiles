@@ -32,16 +32,18 @@ Plugin 'tpope/vim-endwise'
 
 " language extensions
 
-Plugin 'tpope/vim-haml'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mtscout6/vim-cjsx'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
-Plugin 'amdt/vim-niji'
-Plugin 'guns/vim-sexp'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'digitaltoad/vim-jade'
+
+" Plugin 'tpope/vim-haml'
+" Plugin 'guns/vim-clojure-static'
+" Plugin 'guns/vim-clojure-highlight'
+" Plugin 'tpope/vim-fireplace'
+" Plugin 'tpope/vim-leiningen'
+" Plugin 'amdt/vim-niji'
+" Plugin 'guns/vim-sexp'
+" Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 
 " colourschemes
 
@@ -87,7 +89,6 @@ set bg=dark
 colorscheme Tomorrow-Night
 
 " use greyscale for clojure
-
 " autocmd FileType clojure colorscheme base16-grayscale
 " autocmd FileType clojure highlight LineNr guibg='#101010' guifg='#222222'
 
