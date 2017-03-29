@@ -47,6 +47,6 @@ fi
 
 PATH=/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
-source ~/.profile
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export NVM_DIR="/Users/mgay/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
