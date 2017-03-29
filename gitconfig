@@ -5,7 +5,7 @@
 	autocrlf = input
 [user]
 	name = Matt Gay
-	email = matt.gay@splitit.com.au
+	email = mgay@raywhite.com
 [alias]
 	st = status
 	co = checkout
