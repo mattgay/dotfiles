@@ -15,6 +15,7 @@ alias ff='find . | grep'
 alias ll='ls -alF'
 alias spec='SPEC=zeus zeus rspec'
 alias mongorun='mongod run --config /usr/local/etc/mongod.conf'
+alias headers='curl -s -D - -o /dev/null'
 
 if test "$(which ey)"; then
   alias staging='ey status -e staging_au'
