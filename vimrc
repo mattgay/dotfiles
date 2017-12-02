@@ -1,67 +1,40 @@
 set nocompatible
 
-" vundle
+" Plugins
 
-filetype on
-filetype off
+call plug#begin('~/.local/share/nvim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-
-" make more awesomer
-
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ton/vim-bufsurf'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'Shougo/neocomplcache.vim'
-
-" editing
-
-Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'ton/vim-bufsurf'
+Plug 'Shougo/neocomplcache.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 
 " language extensions
 
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mtscout6/vim-cjsx'
-Plugin 'digitaltoad/vim-jade'
-
-" Plugin 'tpope/vim-haml'
-" Plugin 'guns/vim-clojure-static'
-" Plugin 'guns/vim-clojure-highlight'
-" Plugin 'tpope/vim-fireplace'
-" Plugin 'tpope/vim-leiningen'
-" Plugin 'amdt/vim-niji'
-" Plugin 'guns/vim-sexp'
-" Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mtscout6/vim-cjsx'
+Plug 'digitaltoad/vim-jade'
 
 " colourschemes
 
-Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plugin 'chriskempson/base16-vim'
-Plugin 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 
-" vundling complete, carry on
+" Done Pluggin
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
 syntax on
-
-" meta key
-
-if has("gui_running")
-  set macmeta
-endif
 
 " turn off annoyances
 
@@ -73,10 +46,7 @@ let loaded_matchparen = 1
 
 " UI prettiness
 
-if has("gui_running")
-  set guioptions=egmrt
-endif
-
+set mouse=a
 set noshowmode
 set laststatus=2
 set nowrap
@@ -86,11 +56,8 @@ set number
 set numberwidth=4
 set guifont=Monaco:h13
 set bg=dark
-colorscheme Tomorrow-Night
-
-" use greyscale for clojure
-" autocmd FileType clojure colorscheme base16-grayscale
-" autocmd FileType clojure highlight LineNr guibg='#101010' guifg='#222222'
+colorscheme base16-tomorrow-night
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 
 " search
 
@@ -179,10 +146,6 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 
-" fugitive
-
-autocmd QuickFixCmdPost *grep* cwindow
-
 " netrw
 
 let g:netrw_liststyle=3 " Use tree-mode as default view
@@ -190,10 +153,6 @@ let g:netrw_liststyle=3 " Use tree-mode as default view
 " easymotion
 
 let g:EasyMotion_leader_key = '<leader>'
-
-" weird file extensions
-
-au BufNewFile,BufRead *.rabl setf ruby
 
 " highlight unwanted whitespace
 
