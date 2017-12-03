@@ -8,7 +8,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'ton/vim-bufsurf'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -142,20 +141,6 @@ noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
-
-" buffer surfing
-
-nnoremap gb :BufSurfBack<CR>
-nnoremap gn :BufSurfForward<CR>
-
-" ctrlp
-" return on selection opens in new tab, c-cr opens in current split
-
-" let g:ctrlp_prompt_mappings = {
-"  \ 'AcceptSelection("e")': ['<c-cr>'],
-"  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
-"  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-"  \ }
 
 " netrw
 
