@@ -9,7 +9,6 @@ Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -17,6 +16,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'machakann/vim-sandwich'
 
 " language extensions
 
