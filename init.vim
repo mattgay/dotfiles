@@ -6,17 +6,17 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ton/vim-bufsurf'
-Plug 'Shougo/neocomplcache.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " language extensions
 
@@ -56,8 +56,14 @@ set number
 set numberwidth=4
 set guifont=Monaco:h13
 set bg=dark
-colorscheme base16-tomorrow-night
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+hi EasyMotionTarget ctermbg=none ctermfg=darkred
+hi EasyMotionTarget2First ctermbg=none ctermfg=red
+hi EasyMotionTarget2Second ctermbg=none ctermfg=red
 
 " search
 
@@ -94,6 +100,10 @@ nnoremap <SPACE> <Nop>
 let mapleader = " "
 let maplocalleader = "'"
 
+" homerow escape
+
+inoremap kj <Esc>
+
 " shortcuts
 
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -103,9 +113,16 @@ nnoremap \ :GitGrep<SPACE>
 nnoremap <silent><bar> :GitGrepWord<CR>
 vnoremap <silent><bar> y:GitGrep <C-R>"<CR>
 
-" homerow escape
+" copypaste
 
-inoremap kj <Esc>
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 " tab to bounce between paired delims
 
@@ -133,10 +150,6 @@ noremap <C-K> <C-W>k
 nnoremap gb :BufSurfBack<CR>
 nnoremap gn :BufSurfForward<CR>
 
-" airline theme
-
-let g:airline_theme='tomorrow'
-
 " ctrlp
 " return on selection opens in new tab, c-cr opens in current split
 
@@ -158,6 +171,18 @@ let g:EasyMotion_leader_key = '<leader>'
 
 set list listchars=tab:→\ ,trail:·
 hi SpecialKey guifg=red ctermfg=red
+
+" git gutter
+
+let g:gitgutter_enabled = 0
+nmap <leader>gu :GitGutterToggle<CR>
+
+" fugitive
+
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
 
 " git grep
 
