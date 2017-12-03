@@ -17,6 +17,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jeetsukumaran/vim-buffergator'
 
 " language extensions
 
@@ -46,6 +47,7 @@ let loaded_matchparen = 1
 
 " UI prettiness
 
+set showtabline=0
 set mouse=a
 set noshowmode
 set laststatus=2
@@ -149,11 +151,11 @@ nnoremap gn :BufSurfForward<CR>
 " ctrlp
 " return on selection opens in new tab, c-cr opens in current split
 
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': ['<c-cr>'],
-  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
-  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-  \ }
+" let g:ctrlp_prompt_mappings = {
+"  \ 'AcceptSelection("e")': ['<c-cr>'],
+"  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
+"  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+"  \ }
 
 " netrw
 
