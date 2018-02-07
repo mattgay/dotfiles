@@ -43,6 +43,12 @@ set nobackup
 set noswapfile
 let loaded_matchparen = 1
 
+" Theme
+set termguicolors
+set bg=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+
 " UI prettiness
 
 set showtabline=0
@@ -55,15 +61,9 @@ set ruler
 set number
 set numberwidth=4
 set guifont=Monaco:h13
-set bg=dark
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-hi EasyMotionTarget ctermbg=none ctermfg=darkred
-hi EasyMotionTarget2First ctermbg=none ctermfg=red
-hi EasyMotionTarget2Second ctermbg=none ctermfg=red
+hi link EasyMotionTarget Keyword
 
 " search
 
