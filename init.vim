@@ -14,7 +14,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'machakann/vim-sandwich'
 
@@ -154,11 +153,6 @@ let g:EasyMotion_leader_key = '<leader>'
 
 set list listchars=tab:→\ ,trail:·
 hi SpecialKey guifg=red ctermfg=red
-
-" git gutter
-
-let g:gitgutter_enabled = 0
-nmap <leader>gu :GitGutterToggle<CR>
 
 " fugitive
 
