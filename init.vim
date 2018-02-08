@@ -44,6 +44,7 @@ set noswapfile
 let loaded_matchparen = 1
 
 " Theme
+
 set termguicolors
 set bg=dark
 let g:gruvbox_contrast_dark = 'hard'
@@ -115,6 +116,7 @@ vnoremap <silent><bar> y:GitGrep <C-R>"<CR>
 
 " copypaste
 
+set clipboard=unnamed
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+yg_
 nnoremap <leader>y "+y
