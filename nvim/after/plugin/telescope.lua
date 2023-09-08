@@ -3,11 +3,7 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pp', builtin.find_files, {})
 vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
-
-vim.keymap.set('n', '<leader>ps', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end)
-
+vim.keymap.set('n', '<leader>ps', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, {})
 vim.keymap.set('n', '<leader>gC', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
@@ -22,13 +18,16 @@ require('telescope').setup{
       ignore_current_buffer = true,
       mappings = {
         n = {
-            ['<c-d>'] = 'delete_buffer',
+            ['<c-b>'] = 'delete_buffer',
         }}
     },
     git_bcommits  = {
         initial_mode = "normal",
     },
     git_commits  = {
+        initial_mode = "normal",
+    },
+    grep_string  = {
         initial_mode = "normal",
     }
   }}
