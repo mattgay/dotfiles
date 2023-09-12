@@ -20,9 +20,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>P", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -75,11 +75,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    { 'rose-pine/neovim', name = 'rose-pine' },
-    { 'phaazon/hop.nvim' },
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies = { 'nvim-lua/plenary.nvim' } },
-    { "nvim-treesitter/nvim-treesitter" },
-    { "folke/zen-mode.nvim" },
-    { "tpope/vim-fugitive" }
+require("lazy").setup("plugins", {
+  defaults = {
+    lazy = true
+  },
 })
