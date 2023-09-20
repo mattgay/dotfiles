@@ -9,7 +9,7 @@ return {
       'nvim-tree/nvim-web-devicons'
     },
     keys = {
-      { "<leader>pp" },
+      { "<leader>po" },
       { "<leader>pg" },
       { "<leader>ph" },
       { "<leader>ps" },
@@ -51,7 +51,7 @@ return {
 
       local builtin = require('telescope.builtin')
 
-      vim.keymap.set('n', '<leader>pp', builtin.find_files, {})
+      vim.keymap.set('n', '<leader>po', builtin.find_files, {})
       vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
       vim.keymap.set('n', '<leader>ps', builtin.grep_string, {})
