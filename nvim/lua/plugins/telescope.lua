@@ -13,9 +13,9 @@ return {
       { "<leader>pg" },
       { "<leader>ph" },
       { "<leader>ps" },
-      { "<leader>gc" },
-      { "<leader>gC" },
-      { "<leader>gs" },
+      { "<leader>pC" },
+      { "<leader>pV" },
+      { "<leader>pG" },
       { "<Tab>" },
     },
     config = function()
@@ -55,9 +55,9 @@ return {
       vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
       vim.keymap.set('n', '<leader>ps', builtin.grep_string, {})
-      vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, {})
-      vim.keymap.set('n', '<leader>gC', builtin.git_commits, {})
-      vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+      vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, {})
+      vim.keymap.set('n', '<leader>pV', builtin.git_commits, {})
+      vim.keymap.set('n', '<leader>pG', builtin.git_status, {})
 
       vim.keymap.set('n', '<Tab>', builtin.buffers, {})
     end,

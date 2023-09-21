@@ -46,9 +46,6 @@ return {
                     'lua_ls',
                     'eslint',
                     'tsserver',
-                    'rust_analyzer',
-                    'pyright',
-                    'ruff_lsp',
                     'gopls'
                 },
                 handlers = {
@@ -93,6 +90,7 @@ return {
                             parameterNames = true,
                             rangeVariableTypes = true,
                         },
+                        gofumpt = true
                     },
                 }
             })
@@ -122,7 +120,6 @@ return {
                 },
                 servers = {
                     ['lua_ls'] = { 'lua' },
-                    ['rust_analyzer'] = { 'rust' },
                     ['gopls'] = { 'go' },
                     ['null-ls'] = {
                         -- prettier
@@ -234,7 +231,7 @@ return {
     },
     {
         'lvimuser/lsp-inlayhints.nvim',
-        ft = { 'rust', 'go' },
+        ft = { 'go' },
         config = function()
             local ih = require("lsp-inlayhints")
             ih.setup()
