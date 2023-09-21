@@ -231,7 +231,6 @@ return {
     },
     {
         'lvimuser/lsp-inlayhints.nvim',
-        ft = { 'go' },
         config = function()
             local ih = require("lsp-inlayhints")
             ih.setup()
