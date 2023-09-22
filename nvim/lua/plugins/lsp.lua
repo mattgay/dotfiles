@@ -90,7 +90,6 @@ return {
                             parameterNames = true,
                             rangeVariableTypes = true,
                         },
-                        gofumpt = true
                     },
                 }
             })
@@ -113,7 +112,7 @@ return {
 
 
             -- leader f to apply formatting to any given file
-            lsp_zero.format_mapping('<leader>f', {
+            lsp_zero.format_mapping('<leader>=', {
                 format_opts = {
                     async = false,
                     timeout_ms = 10000,
@@ -132,7 +131,7 @@ return {
                         'yaml',
                         'scss',
                         -- Black
-                        'python'
+                        'python',
                     },
                 }
             })
@@ -178,7 +177,7 @@ return {
                     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                     ['<C-d>'] = cmp.mapping.scroll_docs(4),
                     -- `Enter` key to confirm completion
-                    ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+                    ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
                     -- Ctrl+Space to trigger completion menu
                     ['<C-Space>'] = cmp.mapping.complete(),
                     ['<Tab>'] = cmp_action.tab_complete(),

@@ -9,6 +9,7 @@ return {
       'nvim-tree/nvim-web-devicons'
     },
     keys = {
+      { "<leader>pp" },
       { "<leader>po" },
       { "<leader>pg" },
       { "<leader>ph" },
@@ -39,6 +40,9 @@ return {
           git_commits  = {
             initial_mode = "normal",
           },
+          git_status  = {
+            initial_mode = "normal",
+          },
           grep_string  = {
             initial_mode = "normal",
           }
@@ -51,6 +55,7 @@ return {
 
       local builtin = require('telescope.builtin')
 
+      vim.keymap.set('n', '<leader>pp', builtin.resume, {})
       vim.keymap.set('n', '<leader>po', builtin.find_files, {})
       vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
