@@ -6,11 +6,16 @@ return {
             "neovim/nvim-lspconfig",
             "nvim-treesitter/nvim-treesitter",
         },
+        keys = {
+            { "<leader>=" }
+        },
         config = function()
             require("go").setup({
                 lsp_inlay_hints = { enable = false, },
                 trouble = true,
             })
+
+            vim.keymap.set('n', '<leader>+', require('go.format').goimport, {})
         end,
         event = { "CmdlineEnter" },
         ft = { "go", 'gomod' },
